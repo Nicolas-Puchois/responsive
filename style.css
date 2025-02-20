@@ -19,27 +19,39 @@ header {
 }
 
 main {
+  padding: 1rem 0;
   max-width: 981px;
   margin: auto;
   display: flex;
-  height: 84vh;
+  /* height: 84vh; */
   justify-content: space-between;
   & .main-content {
+    width: 70%;
     & h1 {
       text-align: center;
     }
-    flex-grow: 1;
+
     & #container {
       width: 75%;
       margin: auto;
       display: flex;
       gap: 8px;
       padding: 8px;
+      border: 2px solid grey;
     }
     & .image {
       background: url(./images/bg-hero.webp) no-repeat center center/cover;
       width: 30%;
       min-width: 150px;
+    }
+    & .content {
+      & p {
+        /* background: red; */
+        padding: 4px;
+      }
+      & button {
+        margin-top: 0.8rem;
+      }
     }
   }
   & aside {
@@ -52,4 +64,16 @@ main {
 footer {
   height: 8vh;
   background: grey;
+}
+
+/* mode mobile */
+@media screen and (max-width: 768px) {
+  main {
+    & .main-content {
+      width: 100%;
+    }
+    & aside {
+      display: none;
+    }
+  }
 }
