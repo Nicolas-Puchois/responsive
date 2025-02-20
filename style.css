@@ -5,6 +5,10 @@
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 h1#H1 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
@@ -19,8 +23,26 @@ button {
 }
 
 header {
-  height: 8vh;
-  background: blue;
+  /* height: 8vh; */
+  background: lightblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  & input#menuBurger {
+    display: none;
+  }
+  & nav {
+    flex-grow: 1;
+    & ul {
+      display: flex;
+      justify-content: space-around;
+      & li {
+        & a {
+          color: black;
+        }
+      }
+    }
+  }
 }
 
 main {
@@ -87,6 +109,71 @@ footer {
       width: 100%;
       text-align: center;
       margin-top: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    & nav {
+      & input#menuBurger:checked ~ ul#nav-link {
+        background: white;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        left: 0;
+      }
+      &
+        input#menuBurger:checked
+        + #menu-mobile
+        > label
+        > span.line:nth-child(1) {
+        transform: translateY(12px) rotate(135deg);
+      }
+      &
+        input#menuBurger:checked
+        + #menu-mobile
+        > label
+        > span.line:nth-child(2) {
+        opacity: 0;
+      }
+      &
+        input#menuBurger:checked
+        + #menu-mobile
+        > label
+        > span.line:nth-child(3) {
+        transform: translateY(-12px) rotate(-135deg);
+      }
+      & #menu-mobile > label {
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+        width: 40px;
+        height: 60px;
+        position: relative;
+        cursor: pointer;
+        & span.line {
+          position: absolute;
+          height: 6px;
+          width: 100%;
+          background: black;
+          transition: transform 0.75s ease-out;
+        }
+        & span.line:nth-child(1) {
+          top: 12px;
+        }
+        & span.line:nth-child(2) {
+          top: 24px;
+        }
+        & span.line:nth-child(3) {
+          top: 36px;
+        }
+      }
+      & ul#nav-link {
+        display: none;
+      }
     }
   }
 }
