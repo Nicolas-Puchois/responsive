@@ -5,6 +5,11 @@
   text-decoration: none;
 }
 
+h1#H1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
 button {
   padding: 8px;
   background: rgba(28, 121, 172, 0.825);
@@ -67,13 +72,21 @@ footer {
 }
 
 /* mode mobile */
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+  h1#H1 {
+    font-size: 1.4rem;
+  }
   main {
+    flex-direction: column;
+
     & .main-content {
       width: 100%;
     }
     & aside {
-      display: none;
+      /* display: none; */
+      width: 100%;
+      text-align: center;
+      margin-top: 1rem;
     }
   }
 }
