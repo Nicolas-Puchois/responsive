@@ -1,6 +1,64 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Young+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Young+Serif&display=swap"); */
+@keyframes rainbow {
+  100%,
+  0% {
+    color: rgb(255, 0, 0);
+  }
+  8% {
+    color: rgb(255, 127, 0);
+  }
+  16% {
+    color: rgb(255, 255, 0);
+  }
+  25% {
+    color: rgb(127, 255, 0);
+  }
+  33% {
+    color: rgb(0, 255, 0);
+  }
+  41% {
+    color: rgb(0, 255, 127);
+  }
+  50% {
+    color: rgb(0, 255, 255);
+  }
+  58% {
+    color: rgb(0, 127, 255);
+  }
+  66% {
+    color: rgb(0, 0, 255);
+  }
+  75% {
+    color: rgb(127, 0, 255);
+  }
+  83% {
+    color: rgb(255, 0, 255);
+  }
+  91% {
+    color: rgb(255, 0, 127);
+  }
+}
+
+@keyframes rotater {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: "StarTrekClassic";
+  src: url("./font/StarTrekClassic.eot");
+  src: url("./font/StarTrekClassic.otf?#iefix") format("embedded-opentype"),
+    url("./font/StarTrekClassic.woff2") format("woff2"),
+    url("./font/StarTrekClassic.woff") format("woff"),
+    url("./font/StarTrekClassic.ttf") format("truetype"),
+    url("./font/StarTrekClassic.svg") format("svg");
+}
 
 * {
   margin: 0;
@@ -9,12 +67,19 @@
   text-decoration: none;
 }
 
-/* body,
+a {
+  color: black;
+}
+a:hover {
+  animation: rainbow 6s infinite linear;
+}
+
+body,
 input,
 textarea,
 button {
-  font-family: "Young Serif", serif;
-} */
+  font-family: "StarTrekClassic";
+}
 
 img {
   max-width: 100%;
@@ -35,12 +100,17 @@ button {
 }
 
 header {
-  /* height: 8vh; */
   background: lightblue;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
+  & div#nav {
+    /* height: 8vh; */
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    padding: 4px;
+  }
   & #logo {
     max-width: 100px;
   }
@@ -52,11 +122,6 @@ header {
     & ul {
       display: flex;
       justify-content: space-around;
-      & li {
-        & a {
-          color: black;
-        }
-      }
     }
   }
 }
@@ -169,7 +234,6 @@ footer {
   }
   & #social {
     display: flex;
-
     justify-content: center;
     align-items: center;
     grid-area: C;
@@ -177,6 +241,12 @@ footer {
       gap: 0.6rem;
       display: flex;
       flex-direction: column;
+      & li {
+        & img:hover {
+          animation: rotater 0.5s infinite linear;
+          color: blue;
+        }
+      }
     }
   }
   & #content-footer {
